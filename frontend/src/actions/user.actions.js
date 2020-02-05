@@ -47,8 +47,8 @@ function register(user) {
         userService.register(user)
             .then(
                 user => {
-                    dispatch(success());
-                    history.push('/login');
+                    dispatch(success(user))
+                    dispatch(loginSuccess(user))
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {
@@ -61,6 +61,7 @@ function register(user) {
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+    function loginSuccess(user) { return { type: userConstants.LOGIN_SUCCESS, user} }
 }
 
 function getAll() {
