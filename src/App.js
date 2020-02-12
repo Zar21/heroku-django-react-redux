@@ -30,6 +30,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/">
               <h2>Home</h2>
+              <h1>{process.env.TEXT}</h1>
             </Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
